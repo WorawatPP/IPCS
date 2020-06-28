@@ -1,0 +1,82 @@
+#chart {
+    min-height: 450px;
+}
+
+#chart_area {
+    min-height: 450px;
+}
+
+#chart_div1 {
+    min-height: 450px;
+}
+
+#chart_bar {
+    min-height: 450px;
+}
+
+.card:hover {
+    box-shadow: 0 0 20px rgba(33, 33, 33, .2);
+}
+
+@font-face {
+    font-family: 'Quark';
+    /*a name to be used later*/
+    src: url('fonts/Quark-Bold.otf');
+    /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Quark L';
+    /*a name to be used later*/
+    src: url('fonts/Quark-Light.otf');
+    /*URL to font*/
+}
+
+
+path {
+    stroke: #555;
+}
+
+#interview {
+    left: -700px;
+}
+
+/* li.nav-item:hover {
+    background-color: #323235;
+} */
+
+.card {
+    min-height: 30vh;
+}
+
+#mapid {
+    height: 480px;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.legend {
+    text-align: left;
+    line-height: 18px;
+    color: #555;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}

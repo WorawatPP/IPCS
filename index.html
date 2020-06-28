@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' /> -->
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?version=19">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี</title>
+</head>
+
+<body style="font-family: Quark;" id="section1">
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="img/ipcs-logo.png" width="30vw" height="30vh" class="d-inline-block align-top" alt="">
+            ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" id="sec2" href="#section2">จำนวนร้านค้า</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="sec3" href="#section3">การเจ็บป่วยด้วยโรคจากพิษสารเคมี</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="sec4" href="#section4">การจดทะเบียนรับรองแหล่งผลิต GAP พืช</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="sec5" href="#section5">สารปนเปื้อนในดิน และน้ำ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="sec6" href="#section6">รายงานผลการตรวจวิเคราะห์ผักและผลไม้นำเข้า</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row" style="background-color: white;">
+            <div class="col-md-3 d-none d-lg-block mt-3" style="text-align: center;" id="logo1">
+                <a href="http://www.doa.go.th/"><img src="img/logo-601024.png" alt="" style="width: 100px;"></a>
+            </div>
+            <div class="col-md-3 d-none d-lg-block mt-3" style="text-align: center;">
+                <a href="https://www3.dmsc.moph.go.th/"><img src="img/DMSs.png" alt="" style="width: 90px;"></a>
+            </div>
+            <div class="col-md-3 d-none d-lg-block mt-3" style="text-align: center;">
+                <a href="https://ddc.moph.go.th/"><img src="img/DMDc.png" alt=""
+                        style="width: 150px; padding-right: 15px;"></a>
+            </div>
+            <div class="col-md-3 d-none d-lg-block mt-3" style="text-align: center;">
+                <a href="https://www.deqp.go.th/new/"><img src="img/DME.png" alt="" style="width: 85px;"></a>
+            </div>
+        </div>
+        <div class="row"
+            style="background-image: url('img/background.png'); background-size: cover; background-repeat: no-repeat; color: white;">
+            <div class="col-md-6 mb-md-5" id="interview" style="height: 30vh;">
+                <h1 class="d-none d-md-block ml-5 mt-5">ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี</h1>
+                <p class="d-block d-sm-none ml-0 mt-5" style="font-size: 10vw;">ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี</p>
+                <p class="d-none d-md-block ml-5" style="color: #0F979B;">&emsp;&emsp;ทั่วประเทศไทย</p>
+                <p class="d-none d-md-block ml-5" style="font-family: 'Quark L'; color: #7F7F7F;">
+                    &emsp;&emsp;ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี กองแผนงานและวิชาการ
+                    สำนักงาน<br>&emsp;&emsp;คณะกรรมการอาหารและยา กระทรวงสาธารณสุข<br>&emsp;&emsp;โทร : 02 590 7289 อีเมล
+                    : ipcs_fda@fda.moph.go.th</p>
+            </div>
+            <div class="col-md-2 my-md-auto d-none d-lg-block" id="paraquat">
+                <div class="card text-white" style="text-align: center; background-color: #2ecc71;">
+                    <div class="my-auto">
+                        <h6>Organophosphate <br> & <br> Carbamate</h6>
+                    </div>
+                    <div class="my-auto" style="height: 9vh;">
+                        <canvas id="doughnut-organ"></canvas>
+                    </div>
+                    <div class="my-auto">
+                        <h5>195.39 (ตัน)</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mt-5 my-md-auto d-none d-lg-block" id="glyphosate">
+                <div class="card text-white" style="text-align: center; background-color: #1abc9c;">
+                    <div class="my-auto">
+                        <h6>Herbicides</h6>
+                    </div>
+                    <div class="my-auto" style="height: 9vh;">
+                        <canvas id="doughnut-herbicide"></canvas>
+                    </div>
+                    <div class="my-auto">
+                        <h5>3,634.42 (ตัน)</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-2 mt-5 my-md-auto d-none d-lg-block" id="chlorpyrifos">
+                <div class="card text-white" style="text-align: center; background-color: #e67e22;">
+                    <div class="my-auto">
+                        <h4>Other</h4>
+                    </div>
+                    <div class="my-auto">
+                        <h4>0</h4>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-md-2 mt-5 my-md-auto pb-5 pb-md-0 d-none d-lg-block" id="paraquat">
+                <div class="card text-white" style="text-align: center; background-color: #2ecc71;">
+                    <div class="my-auto">
+                        <h6>จำนวนผู้ซื้อ/ผู้ใช้งาน สารเคมี <br> ปี 2563</h6>
+                    </div>
+                    <div class="my-auto" style="height: 9vh;">
+                        <canvas id="pie-chart"></canvas>
+                    </div>
+                    <div class="my-auto">
+                        <h5>62,791 (ราย)</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile -->
+            <div class="col-6 d-sm-none" id="paraquat-res">
+                <div class="card h-100 text-white" style="text-align: center; background-color: #2ecc71;">
+                    <div class="my-auto">
+                        <h6>Organophosphate <br> & <br> Carbamate</h6>
+                    </div>
+                    <div class="my-auto" style="height: 9vh;">
+                        <canvas id="doughnut-organ-res"></canvas>
+                    </div>
+                    <div class="my-auto">
+                        <h5>195.39 (ตัน)</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 d-sm-none" id="glyphosate-res">
+                <div class="card h-100 text-white" style="text-align: center; background-color: #1abc9c;">
+                    <div class="my-auto">
+                        <h6>Herbicides</h6>
+                    </div>
+                    <div class="my-auto" style="height: 9vh;">
+                        <canvas id="doughnut-herbicide-res"></canvas>
+                    </div>
+                    <div class="my-auto">
+                        <h5>3,634.42 (ตัน)</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-5 mt-5 d-sm-none">
+                <div class="card h-100 text-white" style="text-align: center; background-color: #e67e22;">
+                    <div class="my-auto">
+                        <h4>Other</h4>
+                    </div>
+                    <div class="my-auto">
+                        <h4>0</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-5 mt-5 d-sm-none">
+                <div class="card h-100 text-white" style="text-align: center; background-color: #2ecc71;">
+                    <div class="my-auto">
+                        <h6>จำนวนผู้ซื้อ/ผู้ใช้งาน สารเคมี <br> ปี 2563</h6>
+                    </div>
+                    <div class="my-auto" style="height: 9vh;">
+                        <canvas id="pie-chart-res"></canvas>
+                    </div>
+                    <div class="my-auto">
+                        <h5>62,791 (ราย)</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+        </div>
+
+        <!-- Chemical Detail -->
+        <div class="row border rounded" id="detail_paraquat" style="display: none;">
+            <div class="col-md-12">
+                <h1>Organophosphate</h1>
+            </div>
+            <div class="col-md-12">
+                <li>ข้อมูลทั่วไป</li>
+                <h6>
+                    ออร์การ์โนฟอสเฟต (Organophosphate, OPs) เป็นกลุ่มของสารอินทรีย์จำพวกฟอสฟอรัส
+                    ที่มีการนำไปใช้เป็นส่วนผสมในผลิตภัณฑ์ต่างๆ สำหรับการนำไปใช้ทั้งในบ้านเรือนและอุตสาหกรรม
+                    ซึ่งส่วนใหญ่ของ
+                    สารในกลุ่มนี้มีการนำไปใช้เพื่อเป็นสารกำจัดแมลงและศัตรูพืชชนิดต่างๆ
+                </h6>
+                <li>คุณสมบัติทางเคมี</li>
+                <h6>
+                    เป็นของเหลวสีเหลืองหรือสีน้ำตาลเข้ม มีกลิ่นเหม็นที่ทำให้รู้สึกอยากอาเจียน สารสามารถระเหยได้
+                    เล็กน้อยและจะสลายตัวเมื่อถูกความร้อนสูง สามารถละลายได้ดีในน้ำมันหรือแอลกอฮอล์ แต่จะละลายได้
+                    เพียงเล็กน้อยในน้ำ
+                </h6>
+                <li>ความเป็นพิษ</li>
+                <h6>
+                    จากรายงานระบุว่า การได้รับสารกลุ่ม OPs ในปริมาณเพียงเล็กน้อย สามารถเหนี่ยวนำให้คนหรือสัตว์
+                    ที่ได้รับเสียชีวิต
+                    ซึ่งสาเหตุการเสียชีวิตมักมาจากระบบการหายใจล้มเหลวอันนื่องมาจากการที่กล้ามเนื้อกระบัง
+                </h6>
+            </div>
+        </div>
+
+        <div class="row border rounded" id="detail_glyphosate" style="display: none;">
+            <div class="col-md-12">
+                <h1>Paraquat & Glyphosate</h1>
+            </div>
+        </div>
+
+        <div class="row border rounded" id="detail_chlorpyrifos" style="display: none;">
+            <div class="col-md-6">
+                <h1>Other</h1>
+            </div>
+            <div class="col-md-6 mt-2">
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td scope="row"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--End Chemical Detail -->
+
+        <div class="row border rounded" style="background-color: #FFFFFF;">
+            <a name="section2" id="section2"></a>
+            <div class="col-md-12 mt-5">
+                <h1 style="color: #0F979B;">แสดงจำนวนร้านค้าใน เขต 1</h1>
+            </div>
+            <div class="col-md-12 mb-5">
+                <!-- <p id="regions_div"></p> -->
+                <div id="mapid"></div>
+            </div>
+            <!-- <div class="col-md-4 border border-dark">
+                <table class="table table-borderless" style="font-size: 18px;">
+                    <tr>
+                        <th>จังหวัด</th>
+                        <th style="color: #2ecc71; text-align: center;">ขายปลีก</th>
+                        <th style="color: #3498db; text-align: center;">ขายส่ง</th>
+                        <th style="color: #f1c40f; text-align: center;">รวม</th>
+                    </tr>
+                    <tr>
+                        <td>เชียงราย</td>
+                        <td style="color: #2ecc71; text-align: center;">10</td>
+                        <td style="color: #3498db; text-align: center;">24</td>
+                        <td style="color: #f1c40f; text-align: center;">34</td>
+                    </tr>
+                    <tr>
+                        <td>เชียงราย</td>
+                        <td style="color: #2ecc71; text-align: center;">20</td>
+                        <td style="color: #3498db; text-align: center;">25</td>
+                        <td style="color: #f1c40f; text-align: center;">45</td>
+                    </tr>
+                    <tr>
+                        <td>ลำพูน</td>
+                        <td style="color: #2ecc71; text-align: center;">15</td>
+                        <td style="color: #3498db; text-align: center;">35</td>
+                        <td style="color: #f1c40f; text-align: center;">50</td>
+                    </tr>
+                    <tr>
+                        <td>ลำปาง</td>
+                        <td style="color: #2ecc71; text-align: center;">40</td>
+                        <td style="color: #3498db; text-align: center;">50</td>
+                        <td style="color: #f1c40f; text-align: center;">90</td>
+                    </tr>
+                    <tr>
+                        <td>แพร่</td>
+                        <td style="color: #2ecc71; text-align: center;">50</td>
+                        <td style="color: #3498db; text-align: center;">20</td>
+                        <td style="color: #f1c40f; text-align: center;">70</td>
+                    </tr>
+                    <tr>
+                        <td>น่าน</td>
+                        <td style="color: #2ecc71; text-align: center;">18</td>
+                        <td style="color: #3498db; text-align: center;">40</td>
+                        <td style="color: #f1c40f; text-align: center;">58</td>
+                    </tr>
+                    <tr>
+                        <td>พะเยา</td>
+                        <td style="color: #2ecc71; text-align: center;">12</td>
+                        <td style="color: #3498db; text-align: center;">37</td>
+                        <td style="color: #f1c40f; text-align: center;">49</td>
+                    </tr>
+                    <tr>
+                        <td>แม่ฮ่องสอน</td>
+                        <td style="color: #2ecc71; text-align: center;">45</td>
+                        <td style="color: #3498db; text-align: center;">27</td>
+                        <td style="color: #f1c40f; text-align: center;">72</td>
+                    </tr>
+                </table>
+            </div> -->
+        </div>
+
+        <div class="row border rounded">
+            <a name=" section3" id="section3"></a>
+            <div class="col-md-12 mt-5">
+                <h1 style="text-align: center;">การเจ็บป่วยด้วยโรคจากพิษสารเคมี ของเขต 1</h1>
+            </div>
+            <div class="col-md-12 mt-5" style="height: 50vh;">
+                <canvas id="line-chart"></canvas>
+            </div>
+        </div>
+
+        <div class=" row border rounded">
+            <a name="section4" id="section4"></a>
+            <div class="col-md-12 mt-5">
+                <h1 style="text-align: center;">ข้อมูลการจดทะเบียนรับรองแหล่งผลิต GAP พืช</h1>
+            </div>
+            <div class="col-md-12 mt-5" style="height: 50vh;">
+                <canvas id="gap-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="row border rounded">
+            <a name="section5" id="section5"></a>
+            <div class="col-md-12 mt-5">
+                <h1 style="text-align: center;">จำนวนสารปนเปื้อนในดิน และน้ำ</h1>
+            </div>
+            <div class="col-md-2 offset-md-1" id="chaingmai" style="text-align: center;">
+                <img src="img/city/chaingmai-color.png" width="100" alt="" style="text-align: center;">
+                <figcaption style="text-align: center;">เชียงใหม่</figcaption>
+            </div>
+            <div class="col-md-2" id="chaingrai" style="text-align: center;">
+                <img src="img/city/chaingrai-color.png" width="100" alt="">
+                <figcaption style="text-align: center;">เชียงราย</figcaption>
+            </div>
+            <div class="col-md-2" id="nan" style="text-align: center;">
+                <img src="img/city/Nan.png" width="100" alt="">
+                <figcaption style="text-align: center;">น่าน</figcaption>
+            </div>
+            <div class="col-md-2" id="phayao" style="text-align: center;">
+                <img src="img/city/phayao-color.png?version=01" width="100" alt="">
+                <figcaption style="text-align: center;">พะเยา</figcaption>
+            </div>
+            <div class="col-md-2" id="lampang" style="text-align: center;">
+                <img src="img/city/lampang-color.png" width="100" alt="">
+                <figcaption style="text-align: center;">ลำปาง</figcaption>
+            </div>
+            <div class="col-md-12" id="detail_all" style="">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover mx-auto w-auto">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="vertical-align: middle;">จังหวัด</th>
+                                <th rowspan="2" style="vertical-align: middle;">แหล่งน้ำ</th>
+                                <th rowspan="2" style="vertical-align: middle;">บริเวณ</th>
+                                <th colspan="2" style="text-align: center;">ตัวอย่างน้ำ</th>
+                                <th colspan="2" style="text-align: center;">ตะกอนดินท้องน้ำ</th>
+                            </tr>
+                            <tr>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                            </tr>
+                            <tr>
+                                <td>เชียงใหม่</td>
+                                <td class="text-nowrap">แม่น้ำปิง</td>
+                                <td class="text-nowrap">สะพานซ่อแล บ.ช่อแล (ทช. ชม. 3038) อ.แม่แตง จ.เชียงใหม่ </td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.01</td>
+                                <td class="text-nowrap">0.28</td>
+                            </tr>
+                            <tr>
+                                <td>เชียงราย</td>
+                                <td class="text-nowrap">แม่น้ำกก</td>
+                                <td class="text-nowrap">สสะพานแม่น้ำกก อ.เชียงแสน จ.เชียงราย</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.02</td>
+                                <td class="text-nowrap">0.17</td>
+                            </tr>
+                            <tr>
+                                <td>น่าน</td>
+                                <td>แม่น้ำน่าน</td>
+                                <td class="text-nowrap">บ้านดอนศรีเสริม ต.ในเวียง อ.เมือง จ.น่าน</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.02</td>
+                                <td class="text-nowrap">0.49</td>
+                            </tr>
+                            <tr>
+                                <td>น่าน</td>
+                                <td class="text-nowrap">แม่น้ำน่าน</td>
+                                <td class="text-nowrap">จุดสูบน้ำแรงดันต่ำการประปาน่าน ต.ฝายแก้ว อ.ภูเพียง จ.น่าน</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.01</td>
+                                <td class="text-nowrap">0.38</td>
+                            </tr>
+                            <tr>
+                                <td>น่าน</td>
+                                <td class="text-nowrap">แม่น้ำน่าน</td>
+                                <td class="text-nowrap">จุดสูบน้ำการประปาท่าวังผา ต.ท่าวังผา อ.ท่าวังผา จ.น่าน</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.07</td>
+                                <td class="text-nowrap">0.9</td>
+                            </tr>
+                            <tr>
+                                <td>พะเยา</td>
+                                <td class="text-nowrap">กว๊านพะเยา</td>
+                                <td class="text-nowrap">ปากแม่น้ำอิงบริเวณสะบานบุนเดช อ.เมือง จ.พะเยา</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.01</td>
+                                <td class="text-nowrap">0.09</td>
+                            </tr>
+                            <tr>
+                                <td>ลำปาง</td>
+                                <td class="text-nowrap">แม่น้ำวัง</td>
+                                <td class="text-nowrap">จุดสูบน้ำดิบการประปาสบปราบ บ.หล้าหลวง อ.สบปราบ จ.ลำปาง</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.01</td>
+                                <td class="text-nowrap">0.11</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="detail_chaingmai" style="display: none;">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover mx-auto w-auto">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="vertical-align: middle;">แหล่งน้ำ</th>
+                                <th rowspan="2" style="vertical-align: middle;">บริเวณ</th>
+                                <th colspan="2" style="text-align: center;">ตัวอย่างน้ำ</th>
+                                <th colspan="2" style="text-align: center;">ตะกอนดินท้องน้ำ</th>
+                            </tr>
+                            <tr>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">แม่น้ำปิง</td>
+                                <td class="text-nowrap">สะพานซ่อแล บ.ช่อแล (ทช. ชม. 3038) อ.แม่แตง จ.เชียงใหม่ </td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.01</td>
+                                <td class="text-nowrap">0.28</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="detail_chaingrai" style="display: none;">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover mx-auto w-auto">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="vertical-align: middle;">แหล่งน้ำ</th>
+                                <th rowspan="2" style="vertical-align: middle;">บริเวณ</th>
+                                <th colspan="2" style="text-align: center;">ตัวอย่างน้ำ</th>
+                                <th colspan="2" style="text-align: center;">ตะกอนดินท้องน้ำ</th>
+                            </tr>
+                            <tr>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">แม่น้ำกก</td>
+                                <td class="text-nowrap">สสะพานแม่น้ำกก อ.เชียงแสน จ.เชียงราย</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.02</td>
+                                <td class="text-nowrap">0.17</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="detail_nan" style="display: none;">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover mx-auto w-auto">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="vertical-align: middle;">แหล่งน้ำ</th>
+                                <th rowspan="2" style="vertical-align: middle;">บริเวณ</th>
+                                <th colspan="2" style="text-align: center;">ตัวอย่างน้ำ</th>
+                                <th colspan="2" style="text-align: center;">ตะกอนดินท้องน้ำ</th>
+                            </tr>
+                            <tr>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                            </tr>
+                            <tr>
+                                <td>แม่น้ำน่าน</td>
+                                <td class="text-nowrap">บ้านดอนศรีเสริม ต.ในเวียง อ.เมือง จ.น่าน</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.02</td>
+                                <td class="text-nowrap">0.49</td>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">แม่น้ำน่าน</td>
+                                <td class="text-nowrap">จุดสูบน้ำแรงดันต่ำการประปาน่าน ต.ฝายแก้ว อ.ภูเพียง จ.น่าน</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.01</td>
+                                <td class="text-nowrap">0.38</td>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">แม่น้ำน่าน</td>
+                                <td class="text-nowrap">จุดสูบน้ำการประปาท่าวังผา ต.ท่าวังผา อ.ท่าวังผา จ.น่าน</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.07</td>
+                                <td class="text-nowrap">0.9</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="detail_phayao" style="display: none;">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover mx-auto w-auto">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="vertical-align: middle;">แหล่งน้ำ</th>
+                                <th rowspan="2" style="vertical-align: middle;">บริเวณ</th>
+                                <th colspan="2" style="text-align: center;">ตัวอย่างน้ำ</th>
+                                <th colspan="2" style="text-align: center;">ตะกอนดินท้องน้ำ</th>
+                            </tr>
+                            <tr>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">กว๊านพะเยา</td>
+                                <td class="text-nowrap">ปากแม่น้ำอิงบริเวณสะบานบุนเดช อ.เมือง จ.พะเยา</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.01</td>
+                                <td class="text-nowrap">0.09</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="detail_lampang" style="display: none;">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover mx-auto w-auto">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="vertical-align: middle;">แหล่งน้ำ</th>
+                                <th rowspan="2" style="vertical-align: middle;">บริเวณ</th>
+                                <th colspan="2" style="text-align: center;">ตัวอย่างน้ำ</th>
+                                <th colspan="2" style="text-align: center;">ตะกอนดินท้องน้ำ</th>
+                            </tr>
+                            <tr>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                                <td>Glyphosate (u/L)</td>
+                                <td>Paraquat (u/L)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">แม่น้ำวัง</td>
+                                <td class="text-nowrap">จุดสูบน้ำดิบการประปาสบปราบ บ.หล้าหลวง อ.สบปราบ จ.ลำปาง</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;1.00</td>
+                                <td class="text-nowrap">&lt;0.01</td>
+                                <td class="text-nowrap">0.11</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row border rounded">
+            <a name="section6" id="section6"></a>
+            <div class="col-md-12 mt-5" style="text-align: center;">
+                <h1 style="text-align: center;">รายงานผลการตรวจวิเคราะห์ผักและผลไม้นำเข้า ณ ด่านอาหารและยา</h1>
+                <!-- <button type="button" class="btn btn-primary" id="58">ปี 2558</button>
+                <button type="button" class="btn btn-primary" id="59">ปี 2559</button>
+                <button type="button" class="btn btn-primary" id="60">ปี 2560</button> -->
+                <button type="button" class="btn btn-primary" id="61">ปี 2561</button>
+                <button type="button" class="btn btn-primary" id="62">ปี 2562</button>
+                <button type="button" class="btn btn-primary" id="63">ปี 2563</button>
+            </div>
+            <!-- <div class="col-md-6 offset-md-3 mt-2" id="detail_58">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">ประเภท</th>
+                            <th scope="col">ชนิด</th>
+                            <th scope="col">ตัวอย่างทั้งหมด</th>
+                            <th scope="col">พบการตกค้าง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="7">ผัก</td>
+                        </tr>
+                        <tr>
+                            <td>ดอกหอม</td>
+                            <td>34</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>พริกสด</td>
+                            <td>317</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>กวางตุ้ง</td>
+                            <td>262</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>พริกหนุ่ม</td>
+                            <td>115</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>ถั่วฝักยาว</td>
+                            <td>349</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>กะหล่ำปลี</td>
+                            <td>379</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>ผลไม้</td>
+                            <td>ส้ม</td>
+                            <td>46</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 offset-md-3 mt-2" id="detail_59" style="display: none;">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">ประเภท</th>
+                            <th scope="col">ชนิด</th>
+                            <th scope="col">ตัวอย่างทั้งหมด</th>
+                            <th scope="col">พบการตกค้าง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="11">ผัก</td>
+                        </tr>
+                        <tr>
+                            <td>พริกแห้ง</td>
+                            <td>102</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>ต้นหอม</td>
+                            <td>81</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>บร็อคโคลี</td>
+                            <td>47</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>ขึ้นฉ่าย</td>
+                            <td>70</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>ผักซี</td>
+                            <td>107</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>แตงกวา</td>
+                            <td>130</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>กะหล่ำปี</td>
+                            <td>272</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>พริกสด</td>
+                            <td>273</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>คะน้า</td>
+                            <td>199</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>ถั่วฝักยาว</td>
+                            <td>209</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>ผลไม้</td>
+                            <td colspan="3">ไม่พบการตกค้างในผลไม้</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 offset-md-3 mt-2" id="detail_60" style="display: none;">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">ประเภท</th>
+                            <th scope="col">ชนิด</th>
+                            <th scope="col">ตัวอย่างทั้งหมด</th>
+                            <th scope="col">พบการตกค้าง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="11">ผัก</td>
+                        </tr>
+                        <tr>
+                            <td>หัวไชเท้า</td>
+                            <td>83</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>ดอกหอม</td>
+                            <td>82</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>สะระแหน่</td>
+                            <td>50</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>พริกแห้ง</td>
+                            <td>102</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>บล็อคโคลี่</td>
+                            <td>68</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>กระเทียม</td>
+                            <td>75</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>ผักชีฝรั่ง</td>
+                            <td>133</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>แครอท</td>
+                            <td>70</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>ถั่วลันเตา</td>
+                            <td>82</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>โหระพา</td>
+                            <td>89</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">ผลไม้</td>
+                        </tr>
+                        <tr>
+                            <td>ส้ม</td>
+                            <td>77</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>แอปเปิ้ล</td>
+                            <td>53</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> -->
+            <div class="col-md-6 offset-md-3 mt-2" id="detail_61" style="display: none;">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">ประเภท</th>
+                            <th scope="col">ชนิด</th>
+                            <th scope="col">ตัวอย่างทั้งหมด</th>
+                            <th scope="col">พบการตกค้าง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="11">ผัก</td>
+                        </tr>
+                        <tr>
+                            <td>บล็อคโคลี่</td>
+                            <td>59</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>กระเทียม</td>
+                            <td>191</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>พริกหยวก</td>
+                            <td>57</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>พริกแห้ง</td>
+                            <td>100</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ต้นหอม</td>
+                            <td>224</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>ผักกาดเขียว</td>
+                            <td>76</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>ผักชีฝรั่ง</td>
+                            <td>96</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>พริกสด</td>
+                            <td>493</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>หอมแดง</td>
+                            <td>160</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>กะหล่ำดอก</td>
+                            <td>172</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">ผลไม้</td>
+                            <td>ส้ม</td>
+                            <td>61</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>สตรอว์เบอร์รี</td>
+                            <td>48</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 offset-md-3 mt-2" id="detail_62" style="display: none;">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">ประเภท</th>
+                            <th scope="col">ชนิด</th>
+                            <th scope="col">ตัวอย่างทั้งหมด</th>
+                            <th scope="col">พบการตกค้าง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="11">ผัก</td>
+                        </tr>
+                        <tr>
+                            <td>หัวไชเท้า</td>
+                            <td>103</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td>กระเทียม</td>
+                            <td>91</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>หอมหัวใหญ่</td>
+                            <td>90</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>พริกหนุ่ม</td>
+                            <td>100</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>ดอกหอม</td>
+                            <td>108</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>บล็อคโคลี่</td>
+                            <td>70</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>เห็ด</td>
+                            <td>71</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>กะหล่ำดอก</td>
+                            <td>219</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ถั่วลันเตา</td>
+                            <td>73</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>พริกสด</td>
+                            <td>442</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>ผลไม้</td>
+                            <td>ส้ม</td>
+                            <td>105</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 offset-md-3 mt-2" id="detail_63">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">ประเภท</th>
+                            <th scope="col">ชนิด</th>
+                            <th scope="col">ตัวอย่างทั้งหมด</th>
+                            <th scope="col">พบการตกค้าง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="8">ผัก</td>
+                        </tr>
+                        <tr>
+                            <td>ต้นหอม</td>
+                            <td>80</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ผักกาดขาว</td>
+                            <td>150</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ผักชี</td>
+                            <td>82</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>แตงกวา</td>
+                            <td>66</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>ถั่วฝักยาว</td>
+                            <td>68</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>ขึ้นฉ่าย</td>
+                            <td>81</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>พริกสด</td>
+                            <td>82</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">ผลไม้</td>
+                        </tr>
+                        <tr>
+                            <td>ส้ม</td>
+                            <td>17</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>พุทรา</td>
+                            <td>3</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- Footer-->
+        <div class="row align-items-end" id="footer" style="background-color: #323235; color: white;">
+            <div class="col-md-9 mt-2">
+                <img src="img/logo1.png" alt="" style="width: 3vw;">
+            </div>
+            <div class="col-md-3 d-none d-md-block text-right">
+                <h6>Proudly created by Midi Digital</h6>
+            </div>
+        </div>
+        <!-- End Footer -->
+    </div>
+
+
+
+
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"
+        integrity="sha256-8zyeSXm+yTvzUN1VgAOinFgaVFEFTyYzWShOy9w7WoQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"
+        integrity="sha256-nZaxPHA2uAaquixjSDX19TmIlbRNCOrf5HO1oHl5p70=" crossorigin="anonymous"></script>
+    <!-- All Google Chart Script-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- Area Geo Chart Edit -->
+
+    <script type="text/javascript">
+        google.load("visualization", "1", {
+            packages: ["geochart"]
+        });
+        google.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['State', 'จำนวนร้านค้า'],
+                ['เชียงใหม่', 605],
+                ['ลำพูน', 256],
+                ['พะเยา', 206],
+                ['น่าน', 212],
+                ['แพร่', 154],
+                ['ลำปาง', 141],
+                ['เชียงราย', 373],
+                ['แม่ฮ่องสอน', 71],
+            ]);
+
+            var options = {
+                backgroundColor: {
+                    fill: 'transparent'
+                },
+                datalessRegionColor: 'transparent',
+                displayMode: 'regions',
+                resolution: 'provinces',
+                colorAxis: {
+                    colors: ['#0984e3'],
+                    minValue: 1,
+                    maxValue: 1
+                },
+                region: 'TH',
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+            chart.draw(data, options);
+            window.addEventListener('resize', drawRegionsMap, false);
+        }
+    </script>
+
+    <!-- End Area Geo Chart Edit -->
+
+    <!-- Google Column Chart -->
+
+    <!-- <script>
+        google.load("visualization", "1", {
+            packages: ["corechart"]
+        });
+        google.setOnLoadCallback(drawChart1);
+
+        function drawChart1() {
+            var data = google.visualization.arrayToDataTable([
+                ['ข้อมูลสารเคมีที่ใช้', '', {
+                    role: 'style'
+                }],
+                ['สารเคมีกำจัดแมลง', 500, '#3498db'],
+                ['สารป้องกันกำจัดวัชพืช', 600, '#e74c3c'],
+                ['สารกำจัดเชื้อรา', 800, '#27ae60'],
+                ['สารกำจัดหนูและสัตว์แทะ', 1000, '#e67e22'],
+                ['รวม', 2900, '#8e44ad']
+            ]);
+
+            var options = {
+
+                hAxis: {
+                    title: 'ข้อมูลสารเคมีที่ใช้'
+                }
+            };
+
+            var chart_bar = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+            chart_bar.draw(data, options);
+            window.addEventListener('resize', drawChart1, false);
+        }
+    </script> -->
+
+    <!-- End Google Column Chart -->
+
+    <!-- Area Geo Chart -->
+
+    <script type="text/javascript">
+        google.load("visualization", "1", {
+            packages: ["geochart"]
+        });
+        google.setOnLoadCallback(drawAreaMap);
+
+        function drawAreaMap() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['State', 'เขต'],
+                ['เชียงใหม่', 1],
+                ['ลำพูน', 1],
+                ['พะเยา', 1],
+                ['น่าน', 1],
+                ['แพร่', 1],
+                ['ลำปาง', 1],
+                ['เชียงราย', 1],
+                ['แม่ฮ่องสอน', 1],
+                ['อุตรดิตถ์', 2],
+                ['ตาก', 2],
+                ['สุโขทัย', 2],
+                ['พิษณุโลก', 2],
+                ['เพชรบูรณ์', 2],
+                ['ชัยนาท', 3],
+                ['นครสวรรค์', 3],
+                ['อุทัยธานี', 3],
+                ['กำแพงเพชร', 3],
+                ['พิจิตร', 3],
+                ['สระบุรี', 4],
+                ['นนทบุรี', 4],
+                ['ปทุมธานี', 4],
+                ['พระนครศรีอยุธยา', 4],
+                ['อ่างทอง', 4],
+                ['นครนายก', 4],
+                ['ลพบุรี', 4],
+                ['สิงห์บุรี', 4],
+                ['ราชบุรี', 5],
+                ['สุพรรณบุรี', 5],
+                ['กาญจนบุรี', 5],
+                ['นครปฐม', 5],
+                ['สมุทรสาคร', 5],
+                ['สมุทรสงคราม', 5],
+                ['เพชรบุรี', 5],
+                ['ประจวบคีรีขันธ์', 5],
+                ['สระแก้ว', 6],
+                ['ปราจีนบุรี', 6],
+                ['ฉะเชิงเทรา', 6],
+                ['ตราด', 6],
+                ['จันทบุรี', 6],
+                ['ระยอง', 6],
+                ['ชลบุรี', 6],
+                ['สมุทรปราการ', 6],
+                ['มหาสารคาม', 7],
+                ['ร้อยเอ็ด', 7],
+                ['กาฬสินธุ์', 7],
+                ['ขอนแก่น', 7],
+                ['บึงกาฬ', 8],
+                ['นครพนม', 8],
+                ['สกลนคร', 8],
+                ['หนองคาย', 8],
+                ['เลย', 8],
+                ['อุดรธานี', 8],
+                ['หนองบัวลำภู', 8],
+                ['ชัยภูมิ', 9],
+                ['สุรินทร์', 9],
+                ['บุรีรัมย์', 9],
+                ['นครราชสีมา', 9],
+                ['มุกดาหาร', 10],
+                ['อำนาจเจริญ', 10],
+                ['ยโสธร', 10],
+                ['อุบลราชธานี', 10],
+                ['ศรีสะเกษ', 10],
+                ['นครศรีธรรมราช', 11],
+                ['กระบี่', 11],
+                ['พังงา', 11],
+                ['ภูเก็ต', 11],
+                ['สุราษฎร์ธานี', 11],
+                ['ระนอง', 11],
+                ['ชุมพร', 11],
+                ['สงขลา', 12],
+                ['สตูล', 12],
+                ['ตรัง', 12],
+                ['พัทลุง', 12],
+                ['ปัตตานี', 12],
+                ['ยะลา', 12],
+                ['นราธิวาส', 12],
+                ['กรุงเทพมหานคร', 13],
+            ]);
+
+            var options = {
+                backgroundColor: {
+                    fill: 'transparent'
+                },
+                datalessRegionColor: 'transparent',
+                displayMode: 'regions',
+                resolution: 'provinces',
+                colorAxis: {
+                    colors: ['#0984e3', '#4DB6AC', '#a29bfe', '#fab1a0', '#6D4C41', '#8D6E63', '#2E7D32',
+                        '#00C853',
+                        '#00796B', '#CCFF90', '#FDD835', '#FBC02D', '#00695C'
+                    ],
+                    minValue: 1,
+                    maxValue: 13
+                },
+                region: 'TH',
+                legend: 'none'
+            };
+
+            var chart_area = new google.visualization.GeoChart(document.getElementById('area_div'));
+            chart_area.draw(data, options);
+            window.addEventListener('resize', drawAreaMap, false);
+        }
+    </script>
+
+    <!-- End Area Geo Chart -->
+
+    <!-- Chart About Import Chemical -->
+
+    <!-- <script>
+        google.charts.load('current', {
+            packages: ['corechart', 'bar']
+        });
+        google.charts.setOnLoadCallback(drawImpchart);
+
+        function drawImpchart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'ปีที่นำเข้า');
+            data.addColumn('number', 'สารกำจัดวัชพืช');
+            data.addColumn('number', 'สารกำจัดแมลง');
+            data.addColumn('number', 'สารป้องกันและกำจัดโรคพืช');
+            data.addColumn('number', 'อื่นๆ');
+            data.addColumn('number', 'รวม');
+
+            data.addRows([
+                ['2558', 119971, 12927, 11088, 5560, 149546],
+                ['2559', 125596, 16056, 12915, 6120, 160824],
+                ['2560', 148979, 21601, 19923, 7814, 198317],
+                ['2561', 125280, 18057, 21004, 6591, 170932],
+                ['2562', 88846, 16897, 19334, 6231, 131308],
+            ]);
+
+            var options = {
+                'height': 500,
+            };
+
+            var materialChart = new google.visualization.ColumnChart(document.getElementById('chartimport_div'));
+            materialChart.draw(data, options);
+            window.addEventListener('resize', drawImpchart, false);
+        }
+    </script> -->
+
+    <!-- End Chart Import Chemical -->
+
+    <!-- Case Chart -->
+
+    <!-- <script>
+        google.charts.load('current', {
+            packages: ['corechart', 'bar']
+        });
+        google.charts.setOnLoadCallback(drawcasechart);
+
+        function drawcasechart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'ปีที่');
+            data.addColumn('number', 'เจ็บป่วยจากสารกำจัดวัชพืช');
+            data.addColumn('number', 'เจ็บป่วยจากสารกำจัดแมลง');
+            data.addColumn('number', 'เจ็บป่วยจากสารกำจัดเชื้อลา');
+            data.addColumn('number', 'เจ็บป่วยจากสารกำจัดหนูและสัตว์แทะ');
+            data.addColumn('number', 'รวม');
+
+            data.addRows([
+                ['2558', 314, 295, 110, 40, 759],
+                ['2559', 170, 214, 60, 251, 695],
+                ['2560', 124, 216, 199, 142, 681],
+                ['2561', 125, 180, 210, 91, 606],
+                ['2562', 461, 168, 193, 231, 1053],
+            ]);
+
+            var options = {
+                'height': 500,
+            };
+
+            var materialChart = new google.visualization.ColumnChart(document.getElementById('chartcase_div'));
+            materialChart.draw(data, options);
+            window.addEventListener('resize', drawcasechart, false);
+        }
+    </script> -->
+
+    <!-- End Case Chart -->
+
+    <!-- Residue Chart -->
+
+    <!-- <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['bar']
+        });
+        google.charts.setOnLoadCallback(drawResidueChart);
+
+        function drawResidueChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['ชนิดของสารกำจัดศัตรูพืช', 'น้ำ (ไมโครกรัมต่อลิตร)', 'ดิน (ไมโครกรัมต่อลิตร)'],
+                ['Fungicides', 29.74031000, 5.2702400],
+                ['Herbicides', 39.79281170, 96.3311],
+                ['lnsecticides', 50.8679660, 89.43351120],
+                ['Organophosphates', 66.61551030, 11.7975540],
+                ['Organochlorine', 28.94181030, 51.8369540]
+            ]);
+
+            var options = {
+                'height': 500,
+                bars: 'horizontal' // Required for Material Bar Charts.
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+            window.addEventListener('resize', drawResidueChart, false);
+        }
+    </script> -->
+
+    <!-- End Residue Chart -->
+
+    <!-- End All Google Chart Script -->
+
+    <!-- Hamburg Menu Script -->
+
+    <!-- <script>
+        $('.navbar-nav>li>a').on('click', function () {
+            $('.navbar-collapse').collapse('hide');
+        });
+    </script> -->
+
+    <!-- End Hamburg Menu Script -->
+
+    <!-- Animate Script -->
+
+    <script>
+        $('#interview').css({
+            'opacity': '0'
+        }).animate({
+            'opacity': '1',
+            'left': "+=700px"
+        }, 2000, "linear");
+    </script>
+
+    <!-- End Animate Script -->
+
+    <!-- <script>
+        $(".boxed1").animate({ opacity:1 }, 2500);
+    </script> -->
+
+    <script src="custom.js?version=04"></script>
+    <script src="chart.js?version=05"></script>
+    <!-- <script src="map.js"></script> -->
+    <script src="leaflet.js"></script>
+
+</body>
+
+</html>
