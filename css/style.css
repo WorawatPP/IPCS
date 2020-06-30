@@ -45,9 +45,9 @@ path {
     background-color: #323235;
 } */
 
-.card {
+/* .card {
     min-height: 30vh;
-}
+} */
 
 #mapid {
     height: 480px;
@@ -79,4 +79,19 @@ path {
     float: left;
     margin-right: 8px;
     opacity: 0.7;
+}
+
+ul.navbar-nav>li {
+    font-size: 1rem;
+    border-right: 1px solid #fff;
+    font-family: 'Mitr', sans-serif;
+}
+
+ul.navbar-nav>li:last-child {
+    border: none;
+}
+
+nav.navbar {
+    padding: 0px 10px 0px 10px !important;
+    margin: 0 !important;
 }

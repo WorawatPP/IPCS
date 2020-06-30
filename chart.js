@@ -1,24 +1,24 @@
 new Chart(document.getElementById("line-chart"), {
     type: 'line',
     data: {
-        labels: [2560, 2561, 2562, 2563],
+        labels: [2560, 2561, 2562],
         datasets: [{
-            data: [1716, 778, 653, 237],
+            data: [1716, 778, 653],
             label: "รวมสารกำจัดศัตรูพืช",
             borderColor: "#3e95cd",
             fill: false
         }, {
-            data: [754, 419, 240, 96],
+            data: [754, 419, 240],
             label: "สารกำจักแมลง",
             borderColor: "#bf85dd",
             fill: false
         }, {
-            data: [380, 199, 256, 86],
+            data: [380, 199, 256],
             label: "สารกำจัดวัชพืช",
             borderColor: "#ff708f",
             fill: false
         }, {
-            data: [580, 160, 157, 55],
+            data: [580, 160, 157],
             label: "สารกำจัดศัตรูพืชอื่นๆ",
             borderColor: "#ffa400",
             fill: false

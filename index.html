@@ -33,37 +33,39 @@
 <body style="font-family: Quark;" id="section1">
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <img src="img/ipcs-logo.png" width="30vw" height="30vh" class="d-inline-block align-top" alt="">
-            ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี
-        </a>
+        <a class="navbar-brand" id="logo-ipcs" href="#"><img src="img/ipcs-logo.png" alt="" style="height: 8vh;"></a>
+        <a class="navbar-brand" id="ipcs" href=""
+            style="text-align: center;">ศูนย์พัฒนา<br>นโยบายแห่งชาติด้านสารเคมี</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" id="sec2" href="#section2">จำนวนร้านค้า</a>
+                    <a class="nav-link" id="sec2" href="#section2">ภาพรวม</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="sec3" href="#section3">การเจ็บป่วยด้วยโรคจากพิษสารเคมี</a>
+                    <a class="nav-link" id="sec3" href="#section3">การใช้สารเคมี</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="sec4" href="#section4">การจดทะเบียนรับรองแหล่งผลิต GAP พืช</a>
+                    <a class="nav-link" id="sec4" href="#section4">ผู้ใช้สารเคมี</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="sec5" href="#section5">สารปนเปื้อนในดิน และน้ำ</a>
+                    <a class="nav-link" id="sec5" href="#section5">ร้านเคมีภัณฑ์</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="sec6" href="#section6">รายงานผลการตรวจวิเคราะห์ผักและผลไม้นำเข้า</a>
+                    <a class="nav-link" id="sec6" href="#section6">GAP</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="sec6" href="#section6">ผลกระทบ</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <div class="container-fluid">
-        <div class="row" style="background-color: white;">
+        <!-- <div class="row" style="background-color: white;">
             <div class="col-md-3 d-none d-lg-block mt-3" style="text-align: center;" id="logo1">
                 <a href="http://www.doa.go.th/"><img src="img/logo-601024.png" alt="" style="width: 100px;"></a>
             </div>
@@ -77,10 +79,10 @@
             <div class="col-md-3 d-none d-lg-block mt-3" style="text-align: center;">
                 <a href="https://www.deqp.go.th/new/"><img src="img/DME.png" alt="" style="width: 85px;"></a>
             </div>
-        </div>
+        </div> -->
         <div class="row"
             style="background-image: url('img/background.png'); background-size: cover; background-repeat: no-repeat; color: white;">
-            <div class="col-md-6 mb-md-5" id="interview" style="height: 30vh;">
+            <div class="col-md-6 mb-md-5" id="interview">
                 <h1 class="d-none d-md-block ml-5 mt-5">ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี</h1>
                 <p class="d-block d-sm-none ml-0 mt-5" style="font-size: 10vw;">ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี</p>
                 <p class="d-none d-md-block ml-5" style="color: #0F979B;">&emsp;&emsp;ทั่วประเทศไทย</p>
@@ -88,56 +90,45 @@
                     &emsp;&emsp;ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี กองแผนงานและวิชาการ
                     สำนักงาน<br>&emsp;&emsp;คณะกรรมการอาหารและยา กระทรวงสาธารณสุข<br>&emsp;&emsp;โทร : 02 590 7289 อีเมล
                     : ipcs_fda@fda.moph.go.th</p>
-            </div>
-            <div class="col-md-2 my-md-auto d-none d-lg-block" id="paraquat">
-                <div class="card text-white" style="text-align: center; background-color: #2ecc71;">
-                    <div class="my-auto">
-                        <h6>Organophosphate <br> & <br> Carbamate</h6>
+                <div class="row mt-3">
+                    <div class="col-md-2 d-none d-lg-block offset-md-1" style="text-align: center;">
+                        <img src="img/logo-601024.png" alt="" style="width: 5vw;">
                     </div>
-                    <div class="my-auto" style="height: 9vh;">
-                        <canvas id="doughnut-organ"></canvas>
+                    <div class="col-md-2 d-none d-lg-block" style="text-align: center;">
+                        <img src="img/DMSs.png" alt="" style="width: 5vw;">
                     </div>
-                    <div class="my-auto">
-                        <h5>195.39 (ตัน)</h5>
+                    <div class="col-md-2 d-none d-lg-block" style="text-align: center;">
+                        <img src="img/DME.png" alt="" style="width: 4vw;">
+                    </div>
+                    <div class="col-md-2 d-none d-lg-block" style="text-align: center;">
+                        <img src="img/DMDc.png" alt="" style="width: 5.3vw;">
                     </div>
                 </div>
             </div>
+            <div class="col-md-2 my-md-auto d-none d-lg-block" id="paraquat">
+                <!-- <div class="card text-white"
+                    style="text-align: center; background-color: #2ecc71; height: 30vh; width: 10vw;">
+                    <div class="my-auto">
+                        <p>ผู้ใช้สารเคมี</p>
+                    </div>
+
+                    <div class="my-auto">
+                        <h1>60000</h1>
+                    </div>
+                </div> -->
+            </div>
             <div class="col-md-2 mt-5 my-md-auto d-none d-lg-block" id="glyphosate">
-                <div class="card text-white" style="text-align: center; background-color: #1abc9c;">
+                <!-- <div class="card text-white" style="text-align: center; background-color: #1abc9c;">
                     <div class="my-auto">
                         <h6>Herbicides</h6>
                     </div>
-                    <div class="my-auto" style="height: 9vh;">
-                        <canvas id="doughnut-herbicide"></canvas>
-                    </div>
+
                     <div class="my-auto">
                         <h5>3,634.42 (ตัน)</h5>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <!-- <div class="col-md-2 mt-5 my-md-auto d-none d-lg-block" id="chlorpyrifos">
-                <div class="card text-white" style="text-align: center; background-color: #e67e22;">
-                    <div class="my-auto">
-                        <h4>Other</h4>
-                    </div>
-                    <div class="my-auto">
-                        <h4>0</h4>
-                    </div>
-                </div>
-            </div> -->
-            <div class="col-md-2 mt-5 my-md-auto pb-5 pb-md-0 d-none d-lg-block" id="paraquat">
-                <div class="card text-white" style="text-align: center; background-color: #2ecc71;">
-                    <div class="my-auto">
-                        <h6>จำนวนผู้ซื้อ/ผู้ใช้งาน สารเคมี <br> ปี 2563</h6>
-                    </div>
-                    <div class="my-auto" style="height: 9vh;">
-                        <canvas id="pie-chart"></canvas>
-                    </div>
-                    <div class="my-auto">
-                        <h5>62,791 (ราย)</h5>
-                    </div>
-                </div>
-            </div>
+
             <!-- Mobile -->
             <div class="col-6 d-sm-none" id="paraquat-res">
                 <div class="card h-100 text-white" style="text-align: center; background-color: #2ecc71;">
@@ -373,7 +364,7 @@
                 <img src="img/city/lampang-color.png" width="100" alt="">
                 <figcaption style="text-align: center;">ลำปาง</figcaption>
             </div>
-            <div class="col-md-12" id="detail_all" style="">
+            <div class="col-md-12" id="detail_all">
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover mx-auto w-auto">
                         <thead>
